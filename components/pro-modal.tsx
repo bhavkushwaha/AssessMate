@@ -22,19 +22,27 @@ import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
+import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import * as z from "zod";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { getEmail } from "@/lib/getEmail";
+import { useState } from "react";
+
 const tools = [
   {
     label: "Quiz Generation",
     icon: FileQuestion,
     color: "text-violet-500",
     bgColor: "bg-violet-700/10",
-   },
+  },
   {
     label: "Doubts Solving",
     icon: MessageSquare,
     color: "text-red-500",
     bgColor: "bg-red-700/10",
-  },  
+  },
   {
     label: "Coding Assistant",
     icon: Code,
@@ -43,15 +51,34 @@ const tools = [
   },
   {
     label: "Interview PrepAI",
-    icon : UserIcon,
-    iconColor : "text-yellow-500",
-    bgColor : "bg-yellow-700/10"
+    icon: UserIcon,
+    iconColor: "text-yellow-500",
+    bgColor: "bg-yellow-700/10",
   },
 ];
+
+const formSchema = z.object({
+  name: z.string().min(1, {
+    message: "Name is required",
+  }),
+});
 
 export const ProModal = () => {
   const proModal = useProModal();
 
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: "",
+    },
+  });
+
+  const [email, setEmail] = useState<string|undefined>("");
+
+  const fetchUserEmail  = async () => {
+    setEmail(await getEmail());
+  }
+  
   return (
     <Dialog open={proModal.isOpen} onOpenChange={proModal.onClose}>
       <DialogContent>
@@ -61,9 +88,12 @@ export const ProModal = () => {
               INCREASE LIMIT
             </div>
             <p>Since we are using a paid ChatGPT API,</p>
-            <p>Request for more <span className="text-purple-600">FREE</span> generations </p>
+            <p>
+              Request for more <span className="text-purple-600">FREE</span>{" "}
+              generations{" "}
+            </p>
           </DialogTitle>
-          <DialogDescription className="text-center pt-2 space-y-2 text-zinc-900 font-medium">
+          {/* <DialogDescription className="text-center pt-2 space-y-2 text-zinc-900 font-medium">
             {tools.map((tool) => (
               <Card
                 key={tool.label}
@@ -78,14 +108,42 @@ export const ProModal = () => {
                 <Check className="text-primary w-5 h-5" />
               </Card>
             ))}
-          </DialogDescription>
+          </DialogDescription> */}
+          <div>
+            <Form {...form}>
+              <form
+                className="rounded-lg border w-full p-4 px-3 md:px-6 focus-within:shadow-sm grid grid-cols-12 gap-2"
+                action="https://formspree.io/f/xdkongqg"
+                method="POST"
+              >
+                <FormField
+                  name="name"
+                  render={({ field }) => (
+                    <FormItem className="col-span-12">
+                      <FormControl className="m-0 p-0">
+                        <Input
+                          className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
+                          placeholder="Joe Smith"
+                          {...field}
+                        />
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
+
+                <input name="email" type="text" value={email} hidden/>
+
+                <Button
+                  size="lg"
+                  className="w-full col-span-12 bg-purple-600 hover:bg-purple-700"
+                >
+                  Join Waitlist
+                  <Zap className="w-4 h-4 ml-2 fill-white" />
+                </Button>
+              </form>
+            </Form>
+          </div>
         </DialogHeader>
-        <DialogFooter>
-          <Button size="lg" className="w-full bg-purple-600 hover:bg-purple-700">
-            Request More
-            <Zap className="w-4 h-4 ml-2 fill-white" />
-          </Button>
-        </DialogFooter>
       </DialogContent>
     </Dialog>
   );
