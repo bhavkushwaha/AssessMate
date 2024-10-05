@@ -60,7 +60,7 @@ const InterviewPrepPage = () => {
       toast({
         title: "Something went wrong",
         variant: "destructive",
-        description: error?.response?.data?.length <= 20 ? error?.response?.data : "Please try again.",
+        description: error?.response?.data?.length ?? "Please try again.",
       });
 
       if (error?.response?.status === 403) {
