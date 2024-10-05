@@ -12,6 +12,8 @@
   "dependencies": {
     "@clerk/nextjs": "^5.7.1",
     "@prisma/client": "^5.20.0",
+    "@radix-ui/react-dialog": "^1.1.2",
+    "@radix-ui/react-progress": "^1.1.0",
     "@radix-ui/react-slot": "^1.1.0",
     "assessmate": "file:",
     "class-variance-authority": "^0.7.0",
@@ -21,7 +23,8 @@
     "react": "^18",
     "react-dom": "^18",
     "tailwind-merge": "^2.5.3",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "zustand": "^5.0.0-rc.2"
   },
   "devDependencies": {
     "@types/node": "^20",
