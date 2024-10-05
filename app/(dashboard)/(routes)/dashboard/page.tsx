@@ -16,15 +16,15 @@ const tools = [
   {
     label: "Quiz Generation",
     icon: FileQuestion,
-    color: "text-emerald-500",
-    bgColor: "bg-emerald-500/10",
+    color: "text-violet-500",
+    bgColor: "bg-violet-500/10",
     href: "/quiz",
   },
   {
     label: "Doubts Solving",
     icon: MessageSquare,
-    color: "text-violet-500",
-    bgColor: "bg-violet-500/10",
+    color: "text-red-500",
+    bgColor: "bg-red-500/10",
     href: "/conversation",
   },
   {

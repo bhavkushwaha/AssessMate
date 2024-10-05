@@ -33,13 +33,13 @@ const routes = [
     label: "Quiz Generation",
     icon: FileQuestion,
     href: "/quiz",
-    color: "text-orange-500",
+    color: "text-violet-500",
   },
   {
     label: "Doubts Solving",
     icon: MessageSquare,
     href: "/conversation",
-    color: "text-violet-500",
+    color: "text-red-500",
   },  
   {
     label: "Coding Assistant",

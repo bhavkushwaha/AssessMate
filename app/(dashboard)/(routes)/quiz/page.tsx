@@ -121,8 +121,8 @@ const QuizPage = () => {
         title="Quiz Generation"
         description="Generate quizes using descriptive text."
         icon={FileQuestion}
-        iconColor="text-orange-700"
-        bgColor="bg-orange-700/10"
+        iconColor="text-violet-700"
+        bgColor="bg-violet-700/10"
       />
       <div className="px-4 lg:px-8 pb-8">
         <div>

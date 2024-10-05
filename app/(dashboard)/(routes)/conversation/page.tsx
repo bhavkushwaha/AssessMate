@@ -94,8 +94,8 @@ const DoubtSolvePage = () => {
         title="Doubt Solving"
         description="Solve your Doubts using descriptive text."
         icon={MessageSquare}
-        iconColor="text-violet-500"
-        bgColor="bg-violet-700/10"
+        iconColor="text-red-500"
+        bgColor="bg-red-700/10"
       />
       <div className="px-4 lg:px-8 pb-8">
         <div>
