@@ -20,17 +20,19 @@ export default function QuizStart({ params }: { params: { quizId: String } }) {
   }
   if (isLoading.current) return <StartQuizLoader />;
   return (
-    <div className="flex flex-col bg-organe-100 items-center gap-1">
-      <h1 className="font-bold text-5xl uppercase">{quizData.topic}</h1>
+    <div className="flex flex-col bg-organe-100 items-center gap-2">
+      <h1 className="font-bold text-2xl min-[375px]:text-3xl sm:text-4xl md:text-3xl uppercase">
+        {quizData.topic}
+      </h1>
       <h2 className="text-xl font-semibold">
         {quizData.questionIds.length} Questions
       </h2>
-      <div className="flex items-center gap-4 text-xl">
+      <div className="flex items-center gap-4">
         <Link
           href="/quiz"
           className="px-4 py-2 transition-colors duration-200 rounded-full border-[3px] border-sky-500 text-sky-500 font-bold hover:bg-sky-600 hover:text-white"
         >
-          Back to Quizes
+          Back to Quizzes
         </Link>
         <button
           onClick={handleStartQuiz}
