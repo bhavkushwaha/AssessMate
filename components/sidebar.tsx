@@ -12,6 +12,7 @@ import {
   ImageIcon,
   LayoutDashboard,
   MessageSquare,
+  User,
 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { FreeCounter } from "@/components/free-counter";
@@ -46,6 +47,12 @@ const routes = [
     href: "/code",
     color: "text-green-700",
   },
+  {
+    label: "Interview PrepAI",
+    icon: User,
+    href: "/interview",
+    color: "text-yellow-500",
+  }
 ];
 
 interface SidebarProps {
