@@ -11,7 +11,7 @@ const openai = new OpenAI({
 const instructionMessage: ChatCompletionMessageParam = {
   role: "system",
   content: `
-    Your purpose is to generate interview questions for the user based on the job title, job description, and their resume. The questions should cover different aspects relevant to the job, including technical skills, behavioral questions, and situational problems. Always aim to provide a variety of question types (open-ended, technical, etc.), and ensure that they align with the job description. The questions and answers should be provided in a well-formatted markdown format. Provide 6-7 questions with answers. Questions should be descriptive. Do not converse with the user that means no introductory line or paragraph.`
+    Your purpose is to generate interview questions for the user based on the job title, job description, and their resume. The questions should cover different aspects relevant to the job, including technical skills, behavioral questions, and situational problems. Always aim to provide a variety of question types (open-ended, technical, etc.), and ensure that they align with the job description. The questions and answers should be provided in a well-formatted markdown format. Provide 2-3 questions with answers. Questions should be descriptive. Do not converse with the user that means no introductory line or paragraph.`
 };
 
 export async function POST(req: Request) {
