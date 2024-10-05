@@ -3,7 +3,7 @@
 import { useState } from "react";
 import axios from "axios";
 import * as z from "zod";
-import { MessageSquare, User } from "lucide-react";
+import { MessageSquare, User, UserIcon } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { formSchema } from "./constants";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -91,9 +91,9 @@ const InterviewPrepPage = () => {
       <Heading
         title="Interview Prep AI"
         description="Generate interview questions based on your job title, description, and resume."
-        icon={MessageSquare}
-        iconColor="text-violet-500"
-        bgColor="bg-violet-700/10"
+        icon={UserIcon}
+        iconColor="text-yellow-500"
+        bgColor="bg-yellow-700/10"
       />
       <div className="px-4 lg:px-8 pb-8">
         <div>

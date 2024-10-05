@@ -9,6 +9,7 @@ import {
   ImageIcon,
   MessageSquare,
   FileQuestion,
+  User,
 } from "lucide-react";
 
 const tools = [
@@ -32,6 +33,13 @@ const tools = [
     color: "text-green-700",
     bgColor: "bg-green-700/10",
     href: "/code",
+  },
+  {
+    label: "Interview PrepAI",
+    icon: User,
+    color: "text-yellow-700",
+    bgColor: "bg-yellow-700/10",
+    href: "/interview",
   },
 ];
 
