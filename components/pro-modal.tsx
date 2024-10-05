@@ -27,8 +27,9 @@ import { Input } from "@/components/ui/input";
 import * as z from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { getEmail } from "@/lib/getEmail";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { toast } from "@/hooks/use-toast";
 
 const tools = [
   {
@@ -73,11 +74,24 @@ export const ProModal = () => {
     },
   });
 
-  const [email, setEmail] = useState<string|undefined>("");
+  const [email, setEmail] = useState<string | undefined>("");
 
   const fetchUserEmail  = async () => {
-    setEmail(await getEmail());
+    try {
+      const response = await axios.get('/api/user');
+      setEmail(response.data.email);
+    } catch (error) {
+      console.log(error);
+      toast({
+        title: "Something went wrong",
+        variant: "destructive",
+      });
+    }
   }
+
+  useEffect(() => {
+    fetchUserEmail();
+  }, []);
   
   return (
     <Dialog open={proModal.isOpen} onOpenChange={proModal.onClose}>
@@ -113,7 +127,7 @@ export const ProModal = () => {
             <Form {...form}>
               <form
                 className="rounded-lg border w-full p-4 px-3 md:px-6 focus-within:shadow-sm grid grid-cols-12 gap-2"
-                action="https://formspree.io/f/xdkongqg"
+                action={`https://formspree.io/f/${process.env.NEXT_PUBLIC_FORMSPREE_KEY}`}
                 method="POST"
               >
                 <FormField
