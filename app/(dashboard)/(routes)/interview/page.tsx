@@ -90,7 +90,7 @@ const InterviewPrepPage = () => {
     <div>
       <Heading
         title="Interview Prep AI"
-        description="Generate interview questions based on your job title, description, and resume."
+        description="Generate interview questions based on your job title and job description."
         icon={UserIcon}
         iconColor="text-yellow-500"
         bgColor="bg-yellow-700/10"
