@@ -1,36 +1,115 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AssessMate
+
+**AssessMate** is designed to create an intelligent, multi-functional platform to enhance user learning and development through generative AI technology. The platform caters to various needs such as personalized doubt solving, quiz generation for practice in specific topics, code assistance for developers, and interview preparation guide. This project aims to simplify the assessment process by allowing users to generate quizzes on their favorite topics. It also allows users to generate frequently asked interview questions based on job titles and descriptions. Moreover, functionalities such as resolving doubts and providing code support contribute to the project's success.
+
+## Features
+
+AssessMate offers a comprehensive suite of learning tools:
+
+- **Quiz Generation** : Generating quiz questions based on the topic given by the user and the number of questions selected. The users can take quizzes using our quiz platform and get the score immediately after submission. The quizzes can be re-attempted hence multiple attempts are allowed.
+
+- **Doubt Solving**: Solving users' doubts with any questions. The users can ask their doubts and get their doubts solved in conversational mode.
+
+- **Code Generation**: Helping users with anything related to coding.
+
+- **InterviewPrepAI**: Generating interview preparation questions based on the job title and job description. The interview questions generated pertain to the job title and description entered by the user.
+
 
 ## Getting Started
 
-First, run the development server:
+Try our deployed application : https://assessmate-orpin.vercel.app/
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Follow these instructions to set up AssessMate on your local machine for development and testing.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Prerequisites
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Make sure you have the following installed:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- [Node.js](https://nodejs.org/) (v14 or higher)
+- [npm](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com/)
 
-## Learn More
+## Installation
 
-To learn more about Next.js, take a look at the following resources:
+1. Clone the repository:
+    ```
+    bash
+    git clone https://github.com/bhavkushwaha/AssessMate.git
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Navigate into the project directory:
+    ```
+    bash
+    cd AssessMate
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. Install dependencies:
+    ```
+    bash
+    npm install
+    ```
 
-## Deploy on Vercel
+4. Set up the database and configure environment variables:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+    Create a .env file in the root directory with the following variables:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+    
+    ## Example .env file
+
+    ```
+    NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+    NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+    NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/dashboard
+    NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/dashboard
+
+    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY = "your_key"
+    CLERK_SECRET_KEY = "your_key"
+    NEXT_PUBLIC_FORMSPREE_KEY=xdkongqg
+    ```
+    
+
+## Configuration
+
+AssessMate requires certain environment variables to be set for database connections and API key integration:
+
+- **Database Configuration**: Modify the `.env` file as needed.
+    ```
+    DATABASE_URL = your_database_url
+    ```
+- **API Keys**: If using third-party APIs for quiz generation or code snippets, add them in the `.env` file (we used OpenAI )
+
+    ```
+    OPENAI_API_KEY=your-openai-api-key
+
+    ```
+
+## Usage
+
+1. Start the development server:
+
+   ```bash
+    npm run dev
+   ```
+
+2. Open your browser and navigate to:
+
+    
+    http://localhost:3000
+    
+
+3. To create a production build:
+
+    ```bash
+    npm run build
+    ```
+    
+    
+
+
+## Scripts/Commands
+
+The project includes several scripts to streamline development and deployment:
+
+- `npx prisma db push` : Pushes the prisma schema into the database (only required when connecting to database for the first time).
+- `npm start`: Starts the server in production mode.
+- `npm run dev`: Starts the server in development mode with hot-reloading.
+- `npm run build`: Builds the project for production.
